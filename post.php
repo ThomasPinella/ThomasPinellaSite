@@ -1,8 +1,15 @@
 <?php
-	session_start();
-	$text = $_POST['text'];
+    session_start();
+    $clientmsg = $_POST['text'];
+    $convo_time = $_POST['num'];
 
-	$fp = fopen("log.html", 'a');
-	fwrite($fp, "<div class='msgln'>(".date("g:i A").") <b>Me</b>: ".stripslashes(htmlspecialchars($text))."<br></div>");
-	fclose($fp);
+    $fp = fopen("data.txt", 'a+');
+    fwrite($fp, "Here is what they said: ".$text);
+    fclose($fp);
+    echo "I'm a Thomas!".$text.$convo_time;
+
+    function($clientmsg, $convo_time) {
+    	
+    }
+
 ?>

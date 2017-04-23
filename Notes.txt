@@ -1,0 +1,107 @@
+Two ways to scrape data from client side JavaScript:
+1) Use YQL (Yahoo API) to get an html of the site
+2) Load the html of whateversite into an invisible iframe and scrape from current site
+
+Here's how YQL works:
+
+
+function requestCrossDomain(site, callback) {   
+    if (!site) {
+        alert('No site was passed.');
+        return false;
+    }
+    // Take the provided url, and add it to a YQL query. Make sure you encode it!
+    var yql = 'http://query.yahooapis.com/v1/public/yql?q=' + encodeURIComponent('select * from html where url="' + site + '"') + '&format=xml&callback=cbFunc';
+    // Request that YSQL string, and run a callback function.
+    // Pass a defined function to prevent cache-busting.
+    $.get(yql, cbFunc);
+    function cbFunc(data) {
+    	data = JSON.parse(data.substring(11, data.length-2));
+	    if (data.results[0]) {
+	        // Strip out all script tags, for security reasons.
+	        // BE VERY CAREFUL. This helps, but we should do more. 
+	        data = data.results[0].replace(/<script[^>]*>[\s\S]*?<\/script>/gi, '');
+	         
+	        // If the user passed a callback, and it
+	        // is a function, call it, and send through the data var.
+	        if (typeof callback === 'function') {
+	            callback(data);
+	        }
+	    } else throw new Error('Nothing returned from getJSON.');
+	}
+}
+
+
+requestCrossDomain('https://docs.google.com/spreadsheets/d/1wXqWXs5ofOYL-fxxTXUbK6gXN47N592e4AY1i88xofM/edit?usp=sharing', function(results) {
+   $('#chatbox').html(results);
+});
+
+
+Going forward, I think I will write to my "database" by loading a google form into an invisible
+iframe and then submitting it to a google spreadsheet.
+To read, I'll use YQL (I could use another invisible iframe in theory, but it might be slower?), to
+get the html of the shared google spreadsheet.
+
+__
+
+Turns out I can't actually read or write with the iframe method. The same security protocol is still in
+play and I'm unable to touch whatever is in that iframe if it's from a different origin.
+
+Therefore, I'm going to go with the original strategy of sending emails. The question is if I should have an
+email sent every time they send a chat to the bot or if that's overkill. I think it's overkill. I should send an
+email only when they're giving their name and email. And then another for each question, each comment, and each 
+piece of feedback. So that's actually quite a bit. I might get spammed. Probably not, but if I do, that's a good thing I guess.
+
+Let's get email working, then pretty things up. I need to actually consider how I'm going to have the bot converse.
+I'll have an opening message, of course, but after that, what should be the first prompt for the user? I could have them
+give their name/email, introduce themselves, or I could go straight into about me. I should probably have the opening message
+introduce myself a bit first, then ask for their name. I can get their email maybe after they ask me some questions.
+
+
+
+---
+
+
+I got nearlyfreespeech.net domain hosting, very cheap because I realized I can't send email via just front end. It didn't work. Now I'm building a PHP site and it's gonna be dope.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

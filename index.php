@@ -1,66 +1,106 @@
-<!DOCTYPE html>
 <?php
-	session_start();
+    session_start();
+    require_once('Database.php');
 ?>
+
 <html>
-	<head>
-		<title>Thomas Pinella</title>
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
-		<script type="text/javascript">
-			$(document).ready(function(){
+    <head>
+        <meta charset="UTF-8">
+        <title>Thomas Pinella</title>
+        <link type="text/css" rel="stylesheet" href="style.css" />
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+        <script src="ConversationLogic.js"></script>
+        <script>
+            $(document).ready(function() {
+            	var counter = 0;
+                $("#submitmsg").click(function() {
+                    var clientmsg = $("#usermsg").val();
+                    var html = $("#chatbox").html() + "<div class='msgln'>Me: "+clientmsg+"</div>";
+                    $("#chatbox").html(html);
+                    $("#usermsg").val("");
+                    $('#chatbox').animate({scrollTop: $('#chatbox').prop("scrollHeight")}, 1);
 
- 				$("#submitmsg").click(function(){	
-					var clientmsg = $("#usermsg").val();
-					$.post("post.php", {text: clientmsg});				
-					$("#usermsg").attr("value", "");
-					return false;
-				});
+                    setTimeout(function() {
+                    	responseMessage(clientmsg);
+                    }, 1000);
+                    
+                    return false;
+                });
+                
+                function responseMessage(clientmsg) {
+                	$.post("post.php", {text: clientmsg, num: counter}, function(data) {
+	                    var html = $("#chatbox").html() + "<div class='msgln'>Thomas: "+data+"</div>";
+	                    $("#chatbox").html(html);
+	                    $('#chatbox').animate({scrollTop: $('#chatbox').prop("scrollHeight")}, 1);
+	                    counter++;
+                    });
+                }
+            });
+        </script>
+    </head>
+    <body>
+        <div id="wrapper">
+            <div id="menu">
+            <p class="welcome">Welcome, <b></b></p>
+            <p class="logout"><a id="exit" href="#">Exit Chat</a></p>
+            <div style="clear:both"></div>
+        </div>
 
-				function loadLog(){		
-					var oldscrollHeight = $("#chatbox").attr("scrollHeight") - 20; //Scroll height before the request
-					$.ajax({
-						url: "log.html",
-						cache: false,
-						success: function(html){		
-							$("#chatbox").html(html); //Insert chat log into the #chatbox div
+        <div id="chatbox">
 
-							//Auto-scroll			
-							var newscrollHeight = $("#chatbox").attr("scrollHeight") - 20; //Scroll height after the request
-							if(newscrollHeight > oldscrollHeight) {
-								$("#chatbox").animate({ scrollTop: newscrollHeight }, 'normal'); //Autoscroll to bottom of div
-							}		
-					  	},
-					});
-				}
-
-				setInterval (loadLog, 2500);
-
-			});
-		</script>
-	</head>
-	<body>
-		<div id="wrapper">
-			<div id="menu">
-			<p class="welcome">Welcome, <b></b></p>
-			<p class="logout"><a id="exit" href="#">Exit Chat</a></p>
-			<div style="clear:both"></div>
-		</div>
-
-		<div id="chatbox">
-			<?php
-				if(file_exists("log.html") && filesize("log.html") > 0) {
-				    $handle = fopen("log.html", "r");
-				    $contents = fread($handle, filesize("log.html"));
-				    fclose($handle);
-				    echo $contents;
-				}
-			?>
-		</div>
-			<form name="message" action="">
-				<input name="usermsg" type="text" id="usermsg" size="63" />
-				<input name="submitmsg" type="submit"  id="submitmsg" value="Send" />
-			</form>
-		</div>
-		
-	</body>
+        </div>
+            <form name="message" action="">
+                <input name="usermsg" type="text" id="usermsg" size="63" />
+                <input name="submitmsg" type="submit"  id="submitmsg" value="Send" />
+            </form>
+        </div>
+        <?php
+            echo session_id();
+            echo $_SERVER['DOCUMENT_ROOT'];
+            echo "<br>";
+            $sitedata = new Database();
+            $sitedata->db_connect();
+            $res = $sitedata->do_query("select * from visitors");
+            echo $res;
+        ?>
+    </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
