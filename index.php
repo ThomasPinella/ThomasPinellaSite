@@ -60,8 +60,10 @@
             echo "<br>";
             $sitedata = new Database();
             $sitedata->db_connect();
-            $res = $sitedata->do_query("select * from visitors");
-            echo $res;
+            $result = $sitedata->do_query("select * from visitors");
+            while ($row = mysqli_fetch_array($result)) {
+                echo $row['name'];
+            }
         ?>
     </body>
 </html>
