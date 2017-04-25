@@ -3,10 +3,10 @@ class Visitors_db {
 	var $database;
 	function __construct($db) {
 		$this->database = $db;
-        $result = $this->database->do_query("select * from visitors;");
-        while ($row = mysqli_fetch_array($result)) {
-            echo $row['name'];
-        }
+        $result = $this->database->do_query("insert into visitors values (DEFAULT, sdkjlf, CURRENT_TIMESTAMP, null, null, null, null);";
+        //while ($row = mysqli_fetch_array($result)) {
+         //   echo $row['name'];
+        //}
 	}
 
 	function get_item($sql, $item_name) {
@@ -19,14 +19,8 @@ class Visitors_db {
 	}
 
 	function insert_new_user($session_id) {
-		//$sql = "INSERT INTO visitors VALUES (DEFAULT, ".$session_id.", CURRENT_TIMESTAMP, null, null, null, null);";
-		$sql = "select name from visitors;";
-		echo "e1:";
-		echo mysql_error();
-        //$result = $this->database->do_query($sql);
-		echo $this->get_item($sql, 'name');
-        echo "e2:";
-        echo mysql_error();
+		$sql = "INSERT INTO visitors VALUES (DEFAULT, ".$session_id.", CURRENT_TIMESTAMP, null, null, null, null);";
+        $result = $this->database->do_query($sql);
 	}
 
 	function add_name($session_id) {
@@ -41,12 +35,12 @@ class Visitors_db {
 
 	function get_name($session_id) {
 		$sql = "SELECT name FROM visitors WHERE session_id = ".$session_id.";";
-		return get_item($sql, 'name');
+		return $this->get_item($sql, 'name');
 	}
 
 	function get_inspiration($session_id) {
 		$sql = "SELECT inspiration FROM visitors WHERE session_id = ".$session_id.";";
-		return get_item($sql, 'inspiration');
+		return $this->get_item($sql, 'inspiration');
 	}
 }
 ?>
