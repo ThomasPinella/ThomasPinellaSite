@@ -1,15 +1,29 @@
 <?php
     session_start();
+    require_once('Database.php');
+    require_once('Visitors_db.php');
+    
     $clientmsg = $_POST['text'];
     $convo_time = $_POST['num'];
+    $session_id = $_POST['sesh_id'];
+    
+    $sitedata = new Database();
+    $sitedata->db_connect();
+    $visitors_db = new Visitors_db($sitedata);
 
-    $fp = fopen("data.txt", 'a+');
-    fwrite($fp, "Here is what they said: ".$text);
-    fclose($fp);
-    echo "I'm a Thomas!".$text.$convo_time;
+    switch ($convo_time) {
+        case 0:
+	    	$sitedata->do_query(insert_new_user($session_id));
+	        echo "Hello and welcome to my website, <a href='http://thomaspinella.com'>thomaspinella.com</a>! As you might have guessed, my name is Thomas Pinella. I'm a Computer Science major and rising senior at the University of Rochester.
 
-    function($clientmsg, $convo_time) {
-    	
+	What's your name?";
+	        break;
+    	case 1:
+    		$sitedata->do_query(add_name($session_id, $clientmsg));
+	        echo "Hi ".$clientmsg."! Happy to meet you! It gets dreadfully boring living inside this site sometimes...
+
+	Anyways, the purpose of this conversation is for you to learn a bit about me and vice versa. You're turn, ask me a question!";
+			break;
     }
-
+    
 ?>

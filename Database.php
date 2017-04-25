@@ -1,4 +1,7 @@
 <?php
+//set_include_path(get_include_path() . PATH_SEPARATOR . 'phpseclib1.0.5');
+
+//include('Net/SSH2.php');
 
 class Database {
     var $servername = "thomaspinella.db";
@@ -8,10 +11,21 @@ class Database {
     var $conn;
     
     function db_connect() {
+        // For testing
+
+
+        /*
+        $ssh = new Net_SSH2('ssh.phx.nearlyfreespeech.net');
+        if (!$ssh->login('txpinella_thomaspinella', 'oakman101')) {
+            exit('Login Failed');
+        }*/
+
+        // For on server
         $this->conn = new mysqli($this->servername, $this->username, $this->password, $this->dbname);
         if ($this->conn->connect_error) {
             die("Connection failed: " . $this->conn->connect_error);
         }
+        
     }
     
     function db_close() {
@@ -23,3 +37,5 @@ class Database {
         return $result;
     }
 }
+
+?>

@@ -1,55 +1,118 @@
-body {
-    font:12px arial;
-    color: #222;
-    text-align:center;
-    padding:35px; }
-  
-form, p, span {
-    margin:0;
-    padding:0; }
-  
-input { font:12px arial; }
+#wrapper {
+    margin:0 auto;
+    margin-bottom:1%;
+    box-shadow:2px 2px 6px black;
+    padding:10px;
+    background:#fff;
+    height:85%;
+    width:80%;
+    border:2px solid #ACD8F0;
+    border-top-left-radius:15px;
+    border-top-right-radius:15px;
+    table-layout:fixed;
+}
+
+div, input {
+    white-space: pre-wrap;      /* CSS3 */   
+    white-space: -moz-pre-wrap; /* Firefox */    
+    white-space: -pre-wrap;     /* Opera <7 */   
+    white-space: -o-pre-wrap;   /* Opera 7 */    
+    word-wrap: break-word;      /* IE */
+}
+
+
+#chatbox-wrapper {
+    height:91%;
+    border-bottom:2px solid #ACD8F0;
+}
+
+#chatbox {
+    height:100%;
+    overflow:auto;
+}
+
+.msg-wrapper {
+    clear:both;
+
+}
+
+#profile-img {
+    border-radius:50%;
+    width:6%;
+    margin-left:5px;
+    margin-right:5px;
+    margin-top:5px;
+    display:block;
+    float:left;
+}
+
+.msgln_thomas {
+    max-width:50%;
+    text-align:left;
+    background:#F2F2F2;
+    border-radius: 15px;
+    padding:10px;
+    font: 16px/1.5 Arial, sans-serif;
+    margin-left:0px;
+    margin-top:5px;
+    margin-bottom:5px;
+    float:left;
+}
+
+.msgln_user {
+    max-width:50%;
+    background:#A8A8A8;
+    color:white;
+    border-radius: 15px;
+    padding:10px;
+    font: 16px/1.5 Arial, sans-serif;
+    margin-right:0px;
+    margin-top:5px;
+    margin-bottom:5px;
+    text-align:right;
+    float:right;
+
+}
+
+#usermsg-wrapper {
+    width:60%;
+    border-left:1px solid #ACD8F0;
+}
+
+#usermsg {
+    width:100%;
+    height:100%;
+    position:relative;
+}
+#usermsg input {
+    position:absolute;
+    bottom:0;
+    width:100%;
+    padding-left:10px;
+    font: 16px/1.5 Arial, sans-serif;
+    border:0;
+
+}
+
+#submitmsg {
+    background-color:yellow;
+
+}
   
 a {
     color:#0000FF;
-    text-decoration:none; }
+    text-decoration:none;
+}
   
-    a:hover { text-decoration:underline; }
+a:hover { 
+    text-decoration:underline; 
+    font-weight:bold;
+}
+
+#sp:focus {
+    outline: none;
+}
+
+
+
   
-#wrapper, #loginform {
-    margin:0 auto;
-    padding-bottom:25px;
-    background:#EBF4FB;
-    width:504px;
-    border:1px solid #ACD8F0; }
-  
-#loginform { padding-top:18px; }
-  
-    #loginform p { margin: 5px; }
-  
-#chatbox {
-    text-align:left;
-    margin:0 auto;
-    margin-bottom:25px;
-    padding:10px;
-    background:#fff;
-    height:270px;
-    width:430px;
-    border:1px solid #ACD8F0;
-    overflow:auto; }
-  
-#usermsg {
-    width:395px;
-    border:1px solid #ACD8F0; }
-  
-#submit { width: 60px; }
-  
-.error { color: #ff0000; }
-  
-#menu { padding:12.5px 25px 12.5px 25px; }
-  
-.welcome { float:left; }
-  
-.logout { float:right; }
-  
-.msgln { margin:0 0 2px 0; }
