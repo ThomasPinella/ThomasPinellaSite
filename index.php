@@ -1,6 +1,7 @@
 <?php
     session_start();
     require_once('Database.php');
+    ini_set('error_reporting', E_ALL);
 ?>
 
 <html>
