@@ -14,7 +14,7 @@
 	$name = $visitors_db->get_name($string_id);
     switch ($convo_time) {
         case 0:
-	    	//$visitors_db->insert_new_user($string_id, $session_id);
+	    	$visitors_db->insert_new_user($string_id, $session_id);
 	        echo "Hello and welcome to my website, <a href='http://thomaspinella.com'>thomaspinella.com</a>! As you might have guessed, my name is Thomas Pinella. I'm a Computer Science major and rising senior at the University of Rochester.
 
 What's your name?";
