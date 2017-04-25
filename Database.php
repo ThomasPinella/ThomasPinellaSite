@@ -36,6 +36,10 @@ class Database {
         $result = $this->conn->query($sql);
         return $result;
     }
+
+    function insert($sql) {
+        $this->conn->query($sql);
+    }
 }
 
 ?>
