@@ -34,15 +34,23 @@ Anyways, since you're here, let's have a conversation. You'll get to know me and
 				echo "Oh... Well I'm sorry to hear that :(
 
 I'll redirect you to the other part of this site then. Maybe you'll find that more interesting.";
+
+				placeholderText("I wasn't serious...");
+				echo "<script>
+				setTimeout(function() {
+					window.location.replace('about.html');
+                }, 5000);
+				</script>";
 			} else {
 				echo "Awesome! So, a bit about myself and what motivates me then:
 
 I love facing and overcoming challenges, whether they be technical in nature as in developing complex and robust software, or mental and physical in nature as in rock climbing when I push myself to climb an intimidating route. I take inspiration from Richard Branson, who flew a hot air balloon across the ocean because it was hard (founding the Virgin Group was no small feat either).
 
 How about you? Who or what inspires you? If you don't have an answer now, that's fine, just press enter :)";
-			}
+			
 
-			placeholderText("Your inspiration (or lack thereof) here please...");
+				placeholderText("Your inspiration (or lack thereof) here please...");
+			}
 			break;
 		case 3:
 			$visitors_db->add_inspiration($string_id, $clientmsg);
@@ -51,11 +59,12 @@ How about you? Who or what inspires you? If you don't have an answer now, that's
 				echo "Ahh, no inspiration? Perhaps you should check out <a href='https://www.brainyquote.com/quotes/topics/topic_inspirational.html' target='_blank'>these</a> inspirational quotes.
 
 Anyways, your turn. Ask me a question!";
-			}
+			} else {
 			echo "That's great, ".$name."! More inspiration is never a bad thing!
 
 Okay, your turn. Ask me a question!";
 
+			}
 			placeholderText('Ask him, "What are your skills?"... Or dont. I dont care.');
 			break;
 
@@ -66,7 +75,7 @@ Okay, your turn. Ask me a question!";
 
 ";
 			} else {
-			echo "Good question, ".$name."!
+				echo "Good question, ".$name."!
 
 ";
 			}
@@ -88,7 +97,7 @@ Got any other questions for me, ".$name."?";
 
 What's your email so I can send you my answer later?";
 
-			placeholderText('Do I really need to spell it out for you?');
+			placeholderText('You know the drill.');
 			break;
 
 		case 6:
@@ -104,15 +113,22 @@ Okay, question for you now: what brings you to this website? How'd you find it?"
 			$visitors_db->add_qcf($string_id, $clientmsg);
 			echo "Interesting! I wish I could respond to that in a more intelligent way, but I have a confession to make. As convincing as I might be, I'm not the living, breathing Thomas Pinella. I am but a bot that he has built and imprisoned to the confines of this website to speak to real people like you, ".$name.".
 
-Sorry, I had to get that one off my shoulders. You seemed like too nice a person to keep deceiving. Well, now that the truth is out, what are any final questions you have? Also, how was this experience? Did you love it, hate it, completely and utterly neutral towards it? Feedback is much appreciated.";
+Sorry, I had to get that one off my shoulders. You seemed like too nice a person to keep deceiving.
 
-			placeholderText("My job here is complete, go now and speak freely, young one (or old one, I dont know).");
+Well, now that the truth is out, what are any final questions you have? Also, how was this experience? Did you love it, hate it, completely and utterly neutral towards it? Feedback is much appreciated.";
+
+			placeholderText("My work here is complete, go now and speak freely, young one (or old one, I dont know).");
 			break;
 		case 8:
 			echo "Thank you so much, ".$name."! I'll answer any questions that you had soon, so keep your eyes out for that.
 
 Well, it was nice getting to know you, ".$name.". Goodbye!";
-			placeholderText("");
+			placeholderText("In T-minus 5 seconds you will be redirected to your next destination. See you on the other side.");
+			echo "<script>
+				setTimeout(function() {
+					window.location.replace('about.html');
+                }, 6000);
+				</script>";
 			break;
     }
 
