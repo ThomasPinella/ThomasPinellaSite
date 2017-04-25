@@ -19,7 +19,7 @@ class Visitors_db {
         $result = $this->database->do_query($sql);
 	}
 
-	function add_name($session_id) {
+	function add_name($session_id, $name) {
 		$sql = "UPDATE visitors SET name = '".$name."' WHERE session_id = '".$session_id."';";
         $result = $this->database->do_query($sql);
 	}
