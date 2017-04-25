@@ -1,10 +1,6 @@
 <?php
     session_start();
     require_once('Database.php');
-    /*ini_set('display_errors', 1);
-    ini_set('log_errors', 1);
-	ini_set('display_startup_errors', 1);
-	error_reporting(E_ALL);*/
 ?>
 
 <html>
@@ -84,19 +80,6 @@
                 <input name="submitmsg" type="submit"  id="submitmsg" value="Send" />
             </form>-->
         </div>
-        <?php echo phpinfo();
-        /*
-            echo session_id();
-            echo $_SERVER['DOCUMENT_ROOT'];
-            echo "<br>";
-            $sitedata = new Database();
-            $sitedata->db_connect();
-            $result = $sitedata->do_query("select * from visitors");
-            while ($row = mysqli_fetch_array($result)) {
-                echo $row['name'];
-            }
-            */
-        ?>
     </body>
 </html>
 
