@@ -82,7 +82,7 @@ What's your email so I can send you my answer later?";
 
 Okay, question for you now: what brings you to this website? How'd you find it?";
 
-			placeholderText("Dont look at me. You're the one who got yourself into this mess.");
+			placeholderText("Dont look at me. You are the one who got yourself into this mess.");
 			break;
 
 		case 7:
