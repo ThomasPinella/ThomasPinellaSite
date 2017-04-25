@@ -3,7 +3,7 @@ class Visitors_db {
 	var $database;
 	function __construct($db) {
 		$this->database = $db;
-        $result = $this->database->do_query("select * from visitors");
+        $result = $this->database->do_query("select * from visitors;");
         while ($row = mysqli_fetch_array($result)) {
             echo $row['name'];
         }
