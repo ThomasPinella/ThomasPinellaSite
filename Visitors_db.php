@@ -3,7 +3,7 @@ class Visitors_db {
 	var $database;
 	function __construct($db) {
 		$this->database = $db;
-        $result = $this->database->do_query("insert into visitors values (DEFAULT, sdkjlf, CURRENT_TIMESTAMP, null, null, null, null);";
+        $result = $this->database->do_query("insert into visitors values (DEFAULT, sdkjlf, CURRENT_TIMESTAMP, null, null, null, null);");
         //while ($row = mysqli_fetch_array($result)) {
          //   echo $row['name'];
         //}
