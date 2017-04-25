@@ -19,10 +19,12 @@ class Visitors_db {
 	}
 
 	function insert_new_user($session_id) {
-		$sql = "INSERT INTO visitors VALUES (DEFAULT, ".$session_id.", CURRENT_TIMESTAMP, null, null, null, null);";
+		//$sql = "INSERT INTO visitors VALUES (DEFAULT, ".$session_id.", CURRENT_TIMESTAMP, null, null, null, null);";
+		$sql = "select name from visitors;";
 		echo "e1:";
 		echo mysql_error();
-        $result = $this->database->do_query($sql);
+        //$result = $this->database->do_query($sql);
+		echo get_item($sql, 'name');
         echo "e2:";
         echo mysql_error();
 	}
