@@ -15,12 +15,27 @@ class Visitors_db {
 	}
 
 	function insert_new_user($string_id, $session_id) {
-		$sql = "INSERT INTO visitors VALUES (DEFAULT, '".$string_id."', '".$session_id."', CURRENT_TIMESTAMP, null, null, null, null);";
+		$sql = "INSERT INTO visitors VALUES (DEFAULT, '".$string_id."', '".$session_id."', CURRENT_TIMESTAMP, null, null, null, null, null);";
         $result = $this->database->do_query($sql);
 	}
 
 	function add_name($string_id, $name) {
 		$sql = "UPDATE visitors SET name = '".$name."' WHERE string_id = '".$string_id."';";
+        $result = $this->database->do_query($sql);
+	}
+
+	function add_question($string_id, $question) {
+		$sql = "UPDATE visitors SET question = '".$question."' WHERE string_id = '".$string_id."';";
+        $result = $this->database->do_query($sql);
+	}
+
+	function add_inspiration($string_id, $inspiration) {
+		$sql = "UPDATE visitors SET inspiration = '".$inspiration."' WHERE string_id = '".$string_id."';";
+        $result = $this->database->do_query($sql);
+	}
+
+	function add_qcf($string_id, $qcf) {
+		$sql = "UPDATE visitors SET qcf = '".$qcf."' WHERE string_id = '".$string_id."';";
         $result = $this->database->do_query($sql);
 	}
 

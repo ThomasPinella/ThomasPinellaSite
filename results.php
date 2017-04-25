@@ -14,7 +14,7 @@ require_once('Database.php');
 			        $sitedata->db_connect();
 			        $result = $sitedata->do_query("select * from visitors");
 			        while ($row = mysqli_fetch_array($result)) {
-			            echo "Name: ".$row['name'].", Time Visited: ".$row['time_visited'].", Email: ".$row['email'].
+			            echo "session_id: ".$row['session_id'].", Name: ".$row['name'].", Time Visited: ".$row['time_visited'].", Email: ".$row['email'].
 			            ", Inspiration: ".$row['inspiration'].", qcf: ".$row['qcf'];
 			            echo "<br>";
 			        }

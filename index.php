@@ -25,10 +25,10 @@
             	var counter = 0;
 
             	// Initial Message
-
+                waveAnimation();
             	setTimeout(function() {
                 	responseMessage("");
-                }, 1000);
+                }, 1500);
 
                 $("#usermsg").click(function() {
                 	input.focus();
@@ -60,11 +60,19 @@
                     $("#sp").val("");
                     input.focus();
                     $('#chatbox').animate({scrollTop: $('#chatbox').prop("scrollHeight")}, 1);
+                    waveAnimation();
                     return clientmsg;
+                }
+
+                function waveAnimation() {
+                	var html = $("#chatbox").html() + "<div class='msg-wrapper wave-wrapper'><img id='profile-img' src='images/Profile2.jpg' alt='Profile'><div class='msgln_thomas' id='wave'><span class='dot'></span><span class='dot'></span><span class='dot'></span></div></div>";
+                	$("#chatbox").html(html);
+                    $('#chatbox').animate({scrollTop: $('#chatbox').prop("scrollHeight")}, 1);
                 }
                 
                 function responseMessage(clientmsg) {
                 	$.post("post.php", {text: clientmsg, num: counter, sesh_id: "<?php echo session_id()?>", string_id: "<?php echo $session_id?>"}, function(data) {
+                		$(".wave-wrapper").remove();
 	                    var html = $("#chatbox").html() + 
 	                    "<div class='msg-wrapper thomas_msg'><img id='profile-img' src='images/Profile2.jpg' alt='Profile'><div class='msgln_thomas'>"+data+"</div></div>";
 	                    $("#chatbox").html(html);
@@ -79,7 +87,7 @@
 
     	<table cellspacing="0" cellpadding="0" id="wrapper">
 	        <tr><td colspan="2" id="chatbox-wrapper"><div id="chatbox"></div></td></tr>
-        	<tr><td colspan="2"><div id="usermsg"><input id="sp" placeholder="Say your name"></div></td><!--<td id="submitmsg">submit</td>--></tr>
+        	<tr><td colspan="2"><div id="usermsg"><input id="sp"></div></td><!--<td id="submitmsg">submit</td>--></tr>
         </table>
             <!--<form name="message" action="">
                 <input name="usermsg" type="text" id="usermsg" size="63" />
