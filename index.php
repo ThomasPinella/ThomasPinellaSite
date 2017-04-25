@@ -1,6 +1,12 @@
 <?php
     session_start();
     require_once('Database.php');
+
+    function generateRandomString($length = 10) {
+    	return substr(str_shuffle(str_repeat($x='0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ', ceil($length/strlen($x)) )),1,$length);
+	}
+
+	$session_id = generateRandomString(16);
 ?>
 
 <html>
@@ -58,7 +64,7 @@
                 }
                 
                 function responseMessage(clientmsg) {
-                	$.post("post.php", {text: clientmsg, num: counter, sesh_id: "<?php echo session_id()?>"}, function(data) {
+                	$.post("post.php", {text: clientmsg, num: counter, sesh_id: "<?php echo $session_id?>"}, function(data) {
 	                    var html = $("#chatbox").html() + 
 	                    "<div class='msg-wrapper thomas_msg'><img id='profile-img' src='images/Profile2.jpg' alt='Profile'><div class='msgln_thomas'>"+data+"</div></div>";
 	                    $("#chatbox").html(html);
