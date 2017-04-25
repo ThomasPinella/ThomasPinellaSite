@@ -20,8 +20,11 @@ class Visitors_db {
 
 	function insert_new_user($session_id) {
 		$sql = "INSERT INTO visitors VALUES (DEFAULT, ".$session_id.", CURRENT_TIMESTAMP, null, null, null, null);";
-		echo mysql_error($sql);
+		echo "e1:";
+		echo mysql_error();
         $result = $this->database->do_query($sql);
+        echo "e2:";
+        echo mysql_error();
 	}
 
 	function add_name($session_id) {
