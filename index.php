@@ -80,7 +80,7 @@
                 <input name="submitmsg" type="submit"  id="submitmsg" value="Send" />
             </form>-->
         </div>
-        <?php
+        <?php echo phpinfo();
         /*
             echo session_id();
             echo $_SERVER['DOCUMENT_ROOT'];
