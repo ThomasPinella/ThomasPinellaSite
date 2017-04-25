@@ -59,6 +59,7 @@
                 
                 function responseMessage(clientmsg) {
                 	$.post("post.php", {text: clientmsg, num: counter, sesh_id: "<?php echo session_id()?>"}, function(data) {
+                		console.log(data);
 	                    var html = $("#chatbox").html() + 
 	                    "<div class='msg-wrapper thomas_msg'><img id='profile-img' src='images/Profile2.jpg' alt='Profile'><div class='msgln_thomas'>"+data+"</div></div>";
 	                    $("#chatbox").html(html);
