@@ -24,7 +24,7 @@ class Visitors_db {
 		echo "e1:";
 		echo mysql_error();
         //$result = $this->database->do_query($sql);
-		echo get_item($sql, 'name');
+		echo $this->get_item($sql, 'name');
         echo "e2:";
         echo mysql_error();
 	}
