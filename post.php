@@ -46,19 +46,34 @@ How about you? Who or what inspires you? If you don't have an answer now, that's
 			break;
 		case 3:
 			$visitors_db->add_inspiration($string_id, $clientmsg);
+
+			if ($clientmsg == "") {
+				echo "Ahh, no inspiration? Perhaps you should check out <a href='https://www.brainyquote.com/quotes/topics/topic_inspirational.html' target='_blank'>these</a> inspirational quotes.
+
+Anyways, your turn. Ask me a question!";
+			}
 			echo "That's great, ".$name."! More inspiration is never a bad thing!
 
-Ok, your turn. Ask me a question!";
+Okay, your turn. Ask me a question!";
 
 			placeholderText('Ask him, "What are your skills?"... Or dont. I dont care.');
 			break;
 
 		case 4:
+
+			if (!containsAny($clientmsg, ['skill', 'exper'])) {
+				echo "Huh, interesting question. I wasn't expecting that one... But I'll tell you this:
+
+";
+			} else {
 			echo "Good question, ".$name."!
 
-Coding is one skill of mine. I've been doing it since high school. Check out this article of me. It's about me winning a hackathon. See my resume here for more coding skill/experience specifics.
+";
+			}
 
-I'm also a pretty decent writer. Click here to view a research paper I wrote last year that received an honorable mention at my school's annual writing colloqium contest. No need to read the whole 25 pages, unless you're interested in Artificial Intelligence of course (I am!). The paper is about the possibility of consciousness arising in machines and how it's related to intelligence. There are some pretty interesting (startling) conclusions drawn towards the end if you want to skip ahead ;p
+			echo "Coding is one skill of mine. I've been doing it since high school. Check out <a href='https://www.rochester.edu/pr/Review/V78N1/0304_hackers.html' target='_blank'>this</a> article of me. It's about me winning a hackathon. See my <a href='ThomasPinellaResume.pdf' target='_blank'>resume</a> for more coding skill/experience specifics.
+
+I'm also a pretty decent writer. Click <a href='http://writing.rochester.edu/celebrating/2017/NAShonorable.pdf' target='_blank'>here</a> to view a research paper I wrote last year that received an honorable mention at my school's annual writing colloqium contest. No need to read the whole 25 pages, unless you're interested in Artificial Intelligence of course (I am!). The paper is about the possibility of consciousness arising in machines and how it's related to intelligence. There are some pretty interesting (startling) conclusions drawn towards the end if you want to skip ahead ;p
 
 Other skills of mine include product management, agile development, quality assurance testing, video editing and production, event planning, 2D animation, and I have a little experience in sales.
 
@@ -68,6 +83,7 @@ Got any other questions for me, ".$name."?";
 			break;
 
 		case 5:
+			$visitors_db->add_question($string_id, $clientmsg);
 			echo "Alright, thanks for the question, ".$name.". I'm gonnna need some time to think about this one...
 
 What's your email so I can send you my answer later?";
@@ -76,8 +92,7 @@ What's your email so I can send you my answer later?";
 			break;
 
 		case 6:
-			$name = "";//$visitors_db->get_name($string_id);
-			//$visitors_db->add_email($string_id, $clientmsg);
+			$visitors_db->add_email($string_id, $clientmsg);
 			echo "Perfect! Thanks ".$name."! I'll get back to you ASAP!
 
 Okay, question for you now: what brings you to this website? How'd you find it?";
