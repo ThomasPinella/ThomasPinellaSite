@@ -35,8 +35,9 @@ Anyways, since you're here, let's have a conversation. You'll get to know me and
 
 I'll redirect you to the other part of this site then. Maybe you'll find that more interesting.";
 
-				placeholderText("I wasn't serious...");
+				$text = "I wasn't serious...";
 				echo "<script>
+				$('#sp').attr('placeholder', '".$text."');
 				setTimeout(function() {
 					window.location.replace('about.html');
                 }, 5000);
@@ -123,9 +124,10 @@ Well, now that the truth is out, what are any final questions you have? Also, ho
 			echo "Thank you so much, ".$name."! I'll answer any questions that you had soon, so keep your eyes out for that.
 
 Well, it was nice getting to know you, ".$name.". Goodbye!";
-			placeholderText("In T-minus 5 seconds you will be redirected to your next destination. See you on the other side.");
+			$text = "In T-minus 5 seconds you will be redirected to your next destination. See you on the other side.";
 			echo "<script>
 				setTimeout(function() {
+					$('#sp').attr('placeholder', '".$text."');
 					window.location.replace('about.html');
                 }, 6000);
 				</script>";
