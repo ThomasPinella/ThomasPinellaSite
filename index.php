@@ -37,7 +37,6 @@
             $(document).ready(function() {
             	var input = document.getElementById('sp');
 				input.focus();
-
             	var counter = 0;
 
             	// Initial Message
@@ -93,7 +92,12 @@
 	                    "<div class='msg-wrapper thomas_msg'><img id='profile-img' src='images/Profile2.jpg' alt='Profile'><div class='msgln_thomas'>"+data+"</div></div>";
 	                    $("#chatbox").html(html);
 	                    $('#chatbox').animate({scrollTop: $('#chatbox').prop("scrollHeight")}, 1);
-	                    counter++;
+	                    if (typeof loop === 'undefined') {
+	                    	counter++;
+	                	} else {
+	                		console.log("i think it worked yo");
+	                		counter--;
+	                	}
                     });
                 }
             });
