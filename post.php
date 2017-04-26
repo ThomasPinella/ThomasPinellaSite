@@ -100,6 +100,7 @@ Also, I enjoy the color <span style='color:red;'><b>red</b></span>. Don't know w
 
 Hit me with another question!";
 
+				echo "<script>window.loop = false</script>";
 				placeholderText('Well, I`m out of questions. You`re on your own here. Ask away. Anything. Really.');
 			} elseif (containsAny($clientmsg, ['hobby', 'hobbie', 'interest', 'fun']) && !containsAny($clientmsg, ['project'])) {
 				echo "I hinted at this earlier, but I love rock climbing and I'm president of the Univeristy of Rochester rock climbing team.
@@ -110,16 +111,29 @@ My favorite color is <span style='color:red;'><b>red</b></span> in case you were
 
 Hit me with another question!";
 
+				echo "<script>window.loop = false</script>";
 				placeholderText('Well, I`m out of questions. You`re on your own here. Ask away. Anything. Really.');
 			} elseif (containsAny($clientmsg, ['color', 'red', 'blue', 'colour'])) {
 				echo "My favorite color is <span style='color:red;'><b>red</b></span>!
 
 Hit me with another question!";
-
+				echo "<script>window.loop = false</script>";
 				placeholderText('Well, I`m out of questions. You`re on your own here. Ask away. Anything. Really.');
 
 			} elseif (containsAny($clientmsg, ['hobby', 'hobbie', 'interest', 'fun']) && containsAny($clientmsg, ['project'])) {
-				echo "Glad you asked, ".$name."!";
+				echo "Glad you asked, ".$name."!
+
+I have my projects on the 'about' section of this website, so after our little chat you'll get to see it. But if you want to see it now, click <a href='about.html' target='_blank'>here</a> to check it out.
+
+As for my interests, I hinted at this earlier, but I love rock climbing and I'm president of the Univeristy of Rochester rock climbing team.
+
+I also enjoy hiking, playing pickup basketball, traveling, dancing, and watching the TV show 'Silicon Valley'.
+
+My favorite color is <span style='color:red;'><b>red</b></span> in case you were wondering.
+
+Hit me with another question!";
+				echo "<script>window.loop = false</script>";
+				placeholderText('Well, I`m out of questions. You`re on your own here. Ask away. Anything. Really.');
 			}
 
 			else {

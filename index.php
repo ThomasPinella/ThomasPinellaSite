@@ -69,7 +69,6 @@
                 });
 
                 function sendUserMessage() {
-                	window.loop = false;
                 	var clientmsg = $("#sp").val();
                     var html = $("#chatbox").html() + "<div class='msg-wrapper user_msg'><div class='msgln_user'>"+clientmsg+"</div></div>";
                     $("#chatbox").html(html);
