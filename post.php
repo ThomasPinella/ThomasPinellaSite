@@ -97,13 +97,15 @@ Got any other questions for me, ".$name."?";
 
 I have that on the 'about' section of this website, so after our little chat you'll get to see it. But I guess if you're impatient you can see it now... Click <a href='about.html' target='_blank'>here</a> to check it out.
 
-Also, I enjoy the color red. Don't know why I had the urge to share that...
+Also, I enjoy the color <span style='color:red;'><b>red</b>/span>. Don't know why I had the urge to share that...
 
 Hit me with another question!";
 			} elseif (containsAny($clientmsg, ['color', 'red', 'blue'])) {
-				echo "My favorite color is red!
+				echo "My favorite color is <span style='color:red;'><b>red</b>/span>!
 
 Hit me with another question!";
+			} else {
+				echo "Not quite sure what you said there, ".$name.". But if you want to know more about the projects I've worked on, that's on the 'about' section of this website, and you'll be redirected there after our conversation. Or I guess you can go <a href='about.html' target='_blank'>there</a> now."
 			}
 
 			placeholderText('Well, I`m out of questions. You`re on your own here. Ask away. Anything. Really.');
@@ -131,8 +133,6 @@ Okay, question for you now: what brings you to this website? How'd you find it?"
 			$visitors_db->add_qcf($string_id, $clientmsg);
 			echo "Interesting! I wish I could respond to that in a more intelligent way, but I have a confession to make. As convincing as I might be, I'm not the living, breathing Thomas Pinella. I am but a bot that he has built and imprisoned to the confines of this website to speak to real people like you, ".$name.".
 
-Sorry, I had to get that one off my shoulders. You seemed like too nice a person to keep deceiving.
-
 Well, now that the truth is out, what are any final questions you have? Also, how was this experience? Did you love it, hate it, completely and utterly neutral towards it? Feedback is much appreciated.";
 
 			placeholderText("My work here is complete, speak freely!");
@@ -141,11 +141,11 @@ Well, now that the truth is out, what are any final questions you have? Also, ho
 			echo "Thank you so much, ".$name."! I'll answer any questions that you had soon, so keep your eyes out for that.
 
 Well, it was nice getting to know you, ".$name.". Goodbye!";
-			placeholderText("In T-minus 5 seconds you will be redirected to your next destination. See you on the other side");
+			placeholderText("In T-minus 5 seconds you will be redirected to your next destination. See you on the other side.");
 			echo "<script>
 				setTimeout(function() {
 					window.location.replace('about.html');
-                }, 6000);
+                }, 7000);
 				</script>";
 			break;
     }
