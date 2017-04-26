@@ -95,7 +95,7 @@ Got any other questions for me, ".$name."?";
 			if (containsAny($clientmsg, ['project'])) {
 				echo "Glad you asked, ".$name."!
 
-I have that on the 'about' section of this website, so after our little chat you'll get to see it. But I guess if you're impatient you can see it now... Click <a href='about.html' target='_blank'>here</a> to check it out.
+I have that on the 'about' section of this website, so after our little chat you'll get to see it. But if you want to see it now, click <a href='about.html' target='_blank'>here</a> to check it out.
 
 Also, I enjoy the color <span style='color:red;'><b>red</b></span>. Don't know why I had the urge to share that...
 
