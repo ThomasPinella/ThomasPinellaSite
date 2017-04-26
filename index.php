@@ -94,8 +94,7 @@
 	                    $('#chatbox').animate({scrollTop: $('#chatbox').prop("scrollHeight")}, 1);
 	                    if (!window.loop) {
 	                    	counter++;
-	                	} else {
-	                		window.loop = false;
+	                    	window.loop = false;
 	                	}
                     });
                 }
