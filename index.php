@@ -38,7 +38,7 @@
             	var input = document.getElementById('sp');
 				input.focus();
             	var counter = 0;
-
+        		window.loop = false;
             	// Initial Message
                 waveAnimation();
             	setTimeout(function() {
@@ -92,11 +92,10 @@
 	                    "<div class='msg-wrapper thomas_msg'><img id='profile-img' src='images/Profile2.jpg' alt='Profile'><div class='msgln_thomas'>"+data+"</div></div>";
 	                    $("#chatbox").html(html);
 	                    $('#chatbox').animate({scrollTop: $('#chatbox').prop("scrollHeight")}, 1);
-	                    if (typeof loop === 'undefined' || loop == false) {
+	                    if (window.loop) {
 	                    	counter++;
 	                	} else {
-	                		loop = false;
-	                		//counter--;
+	                		window.loop = false;
 	                	}
                     });
                 }

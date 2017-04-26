@@ -124,7 +124,7 @@ Hit me with another question!";
 
 			else {
 				echo "Didn't quite hear you, ".$name.". Can you try asking something again?";
-				echo "<script>loop = true;</script>";
+				echo "<script>window.loop = true;</script>";
 				placeholderText('Ask him something about his projects, or what his hobbies and interests are... Or what his favorite color is.');
 			}
 
