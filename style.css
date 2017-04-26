@@ -1,3 +1,10 @@
+body {
+      background: #fff;
+      background: -webkit-linear-gradient(#fff, #ACD8F0);
+      background:    -moz-linear-gradient(#fff, #ACD8F0);
+      background:         linear-gradient(#fff, #ACD8F0);
+}
+
 #wrapper {
     margin:0 auto;
     margin-bottom:1%;
