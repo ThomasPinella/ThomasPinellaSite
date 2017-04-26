@@ -44,7 +44,7 @@ I'll redirect you to the <a href='about.html'>other</a> part of this site then. 
 			} else {
 				echo "Awesome! So, a bit about myself and what motivates me then:
 
-I love facing and overcoming challenges, whether they be technical in nature as in developing complex and robust software, or mental and physical in nature as in rock climbing when I push myself to climb an intimidating route. I take inspiration from Richard Branson, who flew a hot air balloon across the ocean because it was hard (founding the Virgin Group was no small feat either).
+I love facing and overcoming challenges, whether they be technical in nature as in developing complex and robust software, or mental and physical in nature as in rock climbing when I push myself to climb an intimidating route. I take inspiration from Richard Branson, Steve Jobs, and Alexander the Great.
 
 How about you? Who or what inspires you? If you don't have an answer now, that's fine, just press enter :)";
 			
