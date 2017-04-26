@@ -97,11 +97,11 @@ Got any other questions for me, ".$name."?";
 
 I have that on the 'about' section of this website, so after our little chat you'll get to see it. But I guess if you're impatient you can see it now... Click <a href='about.html' target='_blank'>here</a> to check it out.
 
-Also, I enjoy the color <span style='color:red;'><b>red</b>/span>. Don't know why I had the urge to share that...
+Also, I enjoy the color <span style='color:red;'><b>red</b></span>. Don't know why I had the urge to share that...
 
 Hit me with another question!";
 			} elseif (containsAny($clientmsg, ['color', 'red', 'blue'])) {
-				echo "My favorite color is <span style='color:red;'><b>red</b>/span>!
+				echo "My favorite color is <span style='color:red;'><b>red</b></span>!
 
 Hit me with another question!";
 			} else {
@@ -130,7 +130,7 @@ Okay, question for you now: what brings you to this website? How'd you find it?"
 			break;
 
 		case 8:
-			$visitors_db->add_qcf($string_id, $clientmsg);
+			$visitors_db->add_whyhere($string_id, $clientmsg);
 			echo "Interesting! I wish I could respond to that in a more intelligent way, but I have a confession to make. As convincing as I might be, I'm not the living, breathing Thomas Pinella. I am but a bot that he has built and imprisoned to the confines of this website to speak to real people like you, ".$name.".
 
 Well, now that the truth is out, what are any final questions you have? Also, how was this experience? Did you love it, hate it, completely and utterly neutral towards it? Feedback is much appreciated.";
@@ -138,6 +138,7 @@ Well, now that the truth is out, what are any final questions you have? Also, ho
 			placeholderText("My work here is complete, speak freely!");
 			break;
 		case 9:
+			$visitors_db->add_qcf($string_id, $clientmsg);
 			echo "Thank you so much, ".$name."! I'll answer any questions that you had soon, so keep your eyes out for that.
 
 Well, it was nice getting to know you, ".$name.". Goodbye!";

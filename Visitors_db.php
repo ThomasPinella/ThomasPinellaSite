@@ -15,7 +15,7 @@ class Visitors_db {
 	}
 
 	function insert_new_user($string_id, $session_id) {
-		$sql = "INSERT INTO visitors VALUES (DEFAULT, '".$string_id."', '".$session_id."', CURRENT_TIMESTAMP, null, null, null, null, null);";
+		$sql = "INSERT INTO visitors VALUES (DEFAULT, '".$string_id."', '".$session_id."', CURRENT_TIMESTAMP, null, null, null, null, null, null);";
         $result = $this->database->do_query($sql);
 	}
 
@@ -26,6 +26,11 @@ class Visitors_db {
 
 	function add_question($string_id, $question) {
 		$sql = "UPDATE visitors SET question = '".$question."' WHERE string_id = '".$string_id."';";
+        $result = $this->database->do_query($sql);
+	}
+
+	function add_whyhere($string_id, $whyhere) {
+		$sql = "UPDATE visitors SET whyhere = '".$whyhere."' WHERE string_id = '".$string_id."';";
         $result = $this->database->do_query($sql);
 	}
 
