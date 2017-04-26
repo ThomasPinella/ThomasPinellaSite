@@ -26,7 +26,7 @@ class Database {
     
     function do_query($sql) {
         $result = $this->conn->query($sql);
-        //echo "Error: " . $sql . "<br>" . $this->conn->error;
+        echo "Error: " . $sql . "<br>" . $this->conn->error;
         return $result;
     }
 

@@ -33,13 +33,13 @@ Anyways, since you're here, let's have a conversation. You'll get to know me and
 			if (containsAny($clientmsg, ["no", "nope", "nem", "not good"])) {
 				echo "Oh... Well I'm sorry to hear that :(
 
-I'll redirect you to the other part of this site then. Maybe you'll find that more interesting.";
+I'll redirect you to the <a href='about.html'>other</a> part of this site then. Maybe you'll find that more interesting.";
 
 				placeholderText("I wasn`t serious...");
 				echo "<script>
 				setTimeout(function() {
 					window.location.replace('about.html');
-                }, 5000);
+                }, 4000);
 				</script>";
 			} else {
 				echo "Awesome! So, a bit about myself and what motivates me then:
@@ -53,13 +53,12 @@ How about you? Who or what inspires you? If you don't have an answer now, that's
 			}
 			break;
 		case 3:
-			$visitors_db->add_inspiration($string_id, $clientmsg);
-
 			if ($clientmsg == "") {
 				echo "Ahh, no inspiration? Perhaps you should check out <a href='https://www.brainyquote.com/quotes/topics/topic_inspirational.html' target='_blank'>these</a> inspirational quotes.
 
 Anyways, your turn. Ask me a question!";
 			} else {
+			$visitors_db->add_inspiration($string_id, $clientmsg);
 			echo "That's great, ".$name."! More inspiration is never a bad thing!
 
 Okay, your turn. Ask me a question!";
@@ -105,7 +104,9 @@ Hit me with another question!";
 
 Hit me with another question!";
 			} else {
-				echo "Not quite sure what you said there, ".$name.". But if you want to know more about the projects I've worked on, that's on the 'about' section of this website, and you'll be redirected there after our conversation. Or I guess you can go <a href='about.html' target='_blank'>there</a> now.";
+				echo "Not quite sure what you said there, ".$name.". But if you want to know more about the projects I've worked on, that's on the 'about' section of this website, and you'll be redirected there after our conversation. Or I guess you can go <a href='about.html' target='_blank'>there</a> now.
+
+Hit me with another question!";
 			}
 
 			placeholderText('Well, I`m out of questions. You`re on your own here. Ask away. Anything. Really.');
