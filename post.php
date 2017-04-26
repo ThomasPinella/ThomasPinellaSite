@@ -99,7 +99,7 @@ I have that on the 'about' section of this website, so after our little chat you
 Also, I enjoy the color <span style='color:red;'><b>red</b></span>. Don't know why I had the urge to share that...
 
 Hit me with another question!";
-			} elseif (containsAny($clientmsg, ['color', 'red', 'blue'])) {
+			} elseif (containsAny($clientmsg, ['color', 'red', 'blue', 'colour'])) {
 				echo "My favorite color is <span style='color:red;'><b>red</b></span>!
 
 Hit me with another question!";
