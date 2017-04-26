@@ -105,7 +105,7 @@ Hit me with another question!";
 
 Hit me with another question!";
 			} else {
-				echo "Not quite sure what you said there, ".$name.". But if you want to know more about the projects I've worked on, that's on the 'about' section of this website, and you'll be redirected there after our conversation. Or I guess you can go <a href='about.html' target='_blank'>there</a> now."
+				echo "Not quite sure what you said there, ".$name.". But if you want to know more about the projects I've worked on, that's on the 'about' section of this website, and you'll be redirected there after our conversation. Or I guess you can go <a href='about.html' target='_blank'>there</a> now.";
 			}
 
 			placeholderText('Well, I`m out of questions. You`re on your own here. Ask away. Anything. Really.');
