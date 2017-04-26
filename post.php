@@ -88,10 +88,28 @@ Other skills of mine include product management, agile development, quality assu
 
 Got any other questions for me, ".$name."?";
 
-			placeholderText('You are on your own here. Ask away. Anything. Really.');
+			placeholderText('Ask him something about his projects... Or what his favorite color is.');
 			break;
 
 		case 5:
+			if (containsAny($clientmsg, ['project'])) {
+				echo "Glad you asked, ".$name."!
+
+I have that on the 'about' section of this website, so after our little chat you'll get to see it. But I guess if you're impatient you can see it now... Click <a href='about.html' target='_blank'>here</a> to check it out.
+
+Also, I enjoy the color red. Don't know why I had the urge to share that...
+
+Hit me with another question!";
+			} elseif (containsAny($clientmsg, ['color', 'red', 'blue'])) {
+				echo "My favorite color is red!
+
+Hit me with another question!";
+			}
+
+			placeholderText('Well, I`m out of questions. You`re on your own here. Ask away. Anything. Really.');
+			break;
+
+		case 6:
 			$visitors_db->add_question($string_id, $clientmsg);
 			echo "Alright, thanks for the question, ".$name.". I'm gonnna need some time to think about this one...
 
@@ -100,16 +118,16 @@ What's your email so I can send you my answer later?";
 			placeholderText('You know the drill.');
 			break;
 
-		case 6:
+		case 7:
 			$visitors_db->add_email($string_id, $clientmsg);
 			echo "Perfect! Thanks ".$name."! I'll get back to you ASAP!
 
 Okay, question for you now: what brings you to this website? How'd you find it?";
 
-			placeholderText("Dont look at me. You are the one who got yourself into this mess.");
+			placeholderText("I can`t help you here. You tell me.");
 			break;
 
-		case 7:
+		case 8:
 			$visitors_db->add_qcf($string_id, $clientmsg);
 			echo "Interesting! I wish I could respond to that in a more intelligent way, but I have a confession to make. As convincing as I might be, I'm not the living, breathing Thomas Pinella. I am but a bot that he has built and imprisoned to the confines of this website to speak to real people like you, ".$name.".
 
@@ -117,9 +135,9 @@ Sorry, I had to get that one off my shoulders. You seemed like too nice a person
 
 Well, now that the truth is out, what are any final questions you have? Also, how was this experience? Did you love it, hate it, completely and utterly neutral towards it? Feedback is much appreciated.";
 
-			placeholderText("My work here is complete, go now and speak freely, young one (or old one, I dont know).");
+			placeholderText("My work here is complete, speak freely!");
 			break;
-		case 8:
+		case 9:
 			echo "Thank you so much, ".$name."! I'll answer any questions that you had soon, so keep your eyes out for that.
 
 Well, it was nice getting to know you, ".$name.". Goodbye!";
