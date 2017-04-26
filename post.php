@@ -142,8 +142,6 @@ Hit me with another question!";
 				placeholderText('Ask him something about his projects, or what his hobbies and interests are... Or what his favorite color is.');
 			}
 
-			echo "<script>console.log('Window in post: ' + window.loop)</script>";
-
 			break;
 
 		case 6:
