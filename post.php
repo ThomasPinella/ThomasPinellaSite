@@ -81,17 +81,17 @@ Okay, your turn. Ask me a question!";
 
 			echo "Coding is one skill of mine. I've been doing it since high school. Check out <a href='https://www.rochester.edu/pr/Review/V78N1/0304_hackers.html' target='_blank'>this</a> article of me. It's about me winning a hackathon. See my <a href='ThomasPinellaResume.pdf' target='_blank'>resume</a> for more coding skill/experience specifics.
 
-I'm also a pretty decent writer. Click <a href='http://writing.rochester.edu/celebrating/2017/NAShonorable.pdf' target='_blank'>here</a> to view a research paper I wrote last year that received an honorable mention at my school's annual writing colloqium contest. No need to read the whole 25 pages, unless you're interested in Artificial Intelligence of course (I am!). The paper is about the possibility of consciousness arising in machines and how it's related to intelligence. There are some pretty interesting (startling) conclusions drawn towards the end if you want to skip ahead ;p
+I'm also a pretty decent writer. Click <a href='http://writing.rochester.edu/celebrating/2017/NAShonorable.pdf' target='_blank'>here</a> to view a research paper I wrote last year that received an honorable mention at my school's annual writing colloqium contest. No need to read the whole 25 pages, unless you're interested in Artificial Intelligence of course (I am!). The paper is about the possibility of consciousness arising in machines and how it's related to intelligence. There are some pretty interesting (startling) conclusions drawn towards the end if you want to skip ahead
 
 Other skills of mine include product management, agile development, quality assurance testing, video editing and production, event planning, 2D animation, and I have a little experience in sales.
 
 Got any other questions for me, ".$name."?";
 
-			placeholderText('Ask him something about his projects... Or what his favorite color is.');
+			placeholderText('Ask him something about his projects, or what his hobbies and interests are... Or what his favorite color is.');
 			break;
 
 		case 5:
-			if (containsAny($clientmsg, ['project'])) {
+			if (containsAny($clientmsg, ['project']) && !containsAny($clientmsg, ['hobby', 'hobbie', 'interest', 'fun'])) {
 				echo "Glad you asked, ".$name."!
 
 I have that on the 'about' section of this website, so after our little chat you'll get to see it. But if you want to see it now, click <a href='about.html' target='_blank'>here</a> to check it out.
@@ -99,17 +99,35 @@ I have that on the 'about' section of this website, so after our little chat you
 Also, I enjoy the color <span style='color:red;'><b>red</b></span>. Don't know why I had the urge to share that...
 
 Hit me with another question!";
+
+				placeholderText('Well, I`m out of questions. You`re on your own here. Ask away. Anything. Really.');
+			} elseif (containsAny($clientmsg, ['hobby', 'hobbie', 'interest', 'fun']) && !containsAny($clientmsg, ['project'])) {
+				echo "I hinted at this earlier, but I love rock climbing and I'm president of the Univeristy of Rochester rock climbing team.
+
+I also enjoy hiking, playing pickup basketball, traveling, dancing, and watching the TV show 'Silicon Valley'.
+
+My favorite color is <span style='color:red;'><b>red</b></span> in case you were wondering.
+
+Hit me with another question!";
+
+				placeholderText('Well, I`m out of questions. You`re on your own here. Ask away. Anything. Really.');
 			} elseif (containsAny($clientmsg, ['color', 'red', 'blue', 'colour'])) {
 				echo "My favorite color is <span style='color:red;'><b>red</b></span>!
 
 Hit me with another question!";
-			} else {
-				echo "Not quite sure what you said there, ".$name.". But if you want to know more about the projects I've worked on, that's on the 'about' section of this website, and you'll be redirected there after our conversation. Or I guess you can go <a href='about.html' target='_blank'>there</a> now.
 
-Hit me with another question!";
+				placeholderText('Well, I`m out of questions. You`re on your own here. Ask away. Anything. Really.');
+
+			} elseif (containsAny($clientmsg, ['hobby', 'hobbie', 'interest', 'fun']) && containsAny($clientmsg, ['project'])) {
+				echo "Glad you asked, ".$name."!";
 			}
 
-			placeholderText('Well, I`m out of questions. You`re on your own here. Ask away. Anything. Really.');
+			else {
+				echo "Didn't quite hear you, ".$name.". Can you try asking something again?";
+				echo "<script>counter--;</script>";
+				placeholderText('Ask him something about his projects, or what his hobbies and interests are... Or what his favorite color is.');
+			}
+
 			break;
 
 		case 6:
