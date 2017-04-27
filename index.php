@@ -7,6 +7,9 @@
 	}
 
 	$session_id = generateRandomString(16);
+
+	$ip_address = $_SERVER["REMOTE_ADDR"];
+	
 ?>
 
 <html>
@@ -86,7 +89,7 @@
                 }
                 
                 function responseMessage(clientmsg) {
-                	$.post("post.php", {text: clientmsg, num: counter, sesh_id: "<?php echo session_id()?>", string_id: "<?php echo $session_id?>"}, function(data) {
+                	$.post("post.php", {text: clientmsg, num: counter, sesh_id: "<?php echo session_id()?>", string_id: "<?php echo $session_id?>", ip_address: "<?php echo $ip_address?>"}, function(data) {
                 		$(".wave-wrapper").remove();
 	                    var html = $("#chatbox").html() + 
 	                    "<div class='msg-wrapper thomas_msg'><img id='profile-img' src='images/Profile2.jpg' alt='Profile'><div class='msgln_thomas'>"+data+"</div></div>";
@@ -110,7 +113,6 @@
                 <input name="usermsg" type="text" id="usermsg" size="63" />
                 <input name="submitmsg" type="submit"  id="submitmsg" value="Send" />
             </form>-->
-        </div>
     </body>
 </html>
 
