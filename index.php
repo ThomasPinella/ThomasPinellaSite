@@ -56,7 +56,7 @@
                 waveAnimation();
             	setTimeout(function() {
                 	responseMessage("");
-                }, 1500);
+                }, 200);
 
                 $("#usermsg").click(function() {
                 	input.focus();
@@ -66,7 +66,7 @@
                     var clientmsg = sendUserMessage();
                     setTimeout(function() {
                     	responseMessage(clientmsg);
-                    }, 1000);
+                    }, 900);
                     return false;
                 });
 
@@ -76,7 +76,7 @@
                 		var clientmsg = sendUserMessage();
                     	setTimeout(function() {
                     		responseMessage(clientmsg);
-                    	}, 1000);
+                    	}, 900);
                     	return false;
                 	}
                 });

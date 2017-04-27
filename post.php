@@ -40,7 +40,7 @@ I'll redirect you to the <a href='about.html'>other</a> part of this site then. 
 				echo "<script>
 				setTimeout(function() {
 					window.location.replace('about.html');
-                }, 4000);
+                }, 3000);
 				</script>";
 			} else {
 				echo "Awesome! So, a bit about myself and what motivates me then:
