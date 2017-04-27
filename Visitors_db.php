@@ -15,7 +15,7 @@ class Visitors_db {
 	}
 
 	function insert_new_user($string_id, $session_id, $ip_address) {
-		$sql = "INSERT INTO visitors VALUES (DEFAULT, '".$string_id."', '".$session_id."', '".$ip_address."', CURRENT_TIMESTAMP, null, null, null, null, null, null, null);";
+		$sql = "INSERT INTO visitors VALUES (DEFAULT, '".$string_id."', '".$session_id."', '".$ip_address."', CURRENT_TIMESTAMP, null, null, null, null, null, null);";
         $result = $this->database->do_query($sql);
 	}
 
